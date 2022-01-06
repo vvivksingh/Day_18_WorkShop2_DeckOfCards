@@ -41,4 +41,11 @@ public class DeckOfCards {
             scanner.close();
         }
     }
+    public void sequenceOfPlay(int player) {
+        System.out.println("\nSequence of cards are below : ");
+        for (int i = 1; i <= player; i++) {
+            System.out.println("\nPlayer " + i + " Getting card.............");
+        }
+    }
 }
+
