@@ -10,6 +10,8 @@ public class DeckOfCardMain {
         deckOfCardsGame.welcome();
         deckOfCardsGame.deckOfCard();
         deckOfCardsGame.noOfPlayers();
+        deckOfCardsGame.seqOfPlayer(4);
+        deckOfCardsGame.shuffleCard();
     }
 }
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeckOfCards {
-    public ArrayList<String> DeckCards = new ArrayList<>();
+    public static ArrayList<String> deckCards = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
 
     public void welcome(){
@@ -17,10 +17,10 @@ public class DeckOfCards {
         System.out.println("\nNumber of cards in the deck:" + numOfCards);
         for (int i = 0; i < ranks.length; i++) {
             for (int j = 0; j < suits.length; j++) {
-                DeckCards.add(ranks[i] + "->" + suits[j]);
+                deckCards.add(ranks[i] + "->" + suits[j]);
             }
         }
-        toDisplay(DeckCards);
+        toDisplay(deckCards);
     }
 
     public static void toDisplay(ArrayList<String> cardsDeck) {
@@ -41,11 +41,23 @@ public class DeckOfCards {
             scanner.close();
         }
     }
-    public void sequenceOfPlay(int player) {
+    public void seqOfPlayer(int player) {
         System.out.println("\nSequence of cards are below : ");
         for (int i = 1; i <= player; i++) {
             System.out.println("\nPlayer " + i + " Getting card.............");
         }
     }
+    public static void shuffleCard() {
+        System.out.println("shuffling the cards before Distribution");
+        ArrayList<String> temp = new ArrayList<String>();
+        while (!deckCards.isEmpty()) {
+            int sufCard = (int) (Math.random() * deckCards.size());
+            temp.add(deckCards.get(sufCard));
+            deckCards.remove(sufCard);
+        }
+        deckCards = temp;
+        toDisplay(deckCards);
+    }
 }
+
 
