@@ -1,9 +1,11 @@
 package com.BridgeLabz.WorkShop2.DeckOfCards;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DeckOfCards {
     public ArrayList<String> DeckCards = new ArrayList<>();
+    public static Scanner scanner = new Scanner(System.in);
 
     public void welcome(){
         System.out.println("Welcome to the Deck of Card DashBoard");
@@ -27,5 +29,16 @@ public class DeckOfCards {
             System.out.println(element);
         }
         System.out.println();
+    }
+    public void noOfPlayers() {
+        System.out.print("\nEnter number of players minimum 2 , maximum 4 : ");
+        int player = scanner.nextInt();
+        if (player >= 2 && player <= 4) {
+            System.out.println("\n" + player + " players will play the game");
+        } else {
+            System.out.println("Please enter number of players in the Range");
+            this.noOfPlayers();
+            scanner.close();
+        }
     }
 }
