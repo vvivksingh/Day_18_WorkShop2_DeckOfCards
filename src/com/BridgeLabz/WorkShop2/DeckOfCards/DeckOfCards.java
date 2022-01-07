@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class DeckOfCards {
     public static ArrayList<String> deckCards = new ArrayList<>();
-    public static Scanner scanner = new Scanner(System.in);
+    public Scanner scanner = new Scanner(System.in);
 
     public void welcome(){
         System.out.println("Welcome to the Deck of Card DashBoard");
@@ -47,7 +47,7 @@ public class DeckOfCards {
             System.out.println("\nPlayer " + i + " Getting card.............");
         }
     }
-    public static void shuffleCard() {
+    public void shuffleCard() {
         System.out.println("shuffling the cards before Distribution");
         ArrayList<String> temp = new ArrayList<String>();
         while (!deckCards.isEmpty()) {
@@ -57,6 +57,17 @@ public class DeckOfCards {
         }
         deckCards = temp;
         toDisplay(deckCards);
+    }
+    public static void cardDistribution(ArrayList<String> cardsDeck, int player) {
+        // This loop will iterate for no. of players
+        for (int i = 0; i < player; i++) {
+            System.out.print("\nPlayer " + (i + 1) + " got cards:\n");
+            // This loop will iterate for no of cards for each player
+            for (int j = 0; j < 9; j++) {
+                System.out.print("\t" + cardsDeck.get(i+j*player));
+            }
+        }
+        System.out.println();
     }
 }
 
